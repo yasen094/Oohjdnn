@@ -348,7 +348,7 @@ def is_custom_command(command_text):
         elif permissions == "moderator":
             # سيتم تطبيق فحص الصلاحيات لاحقاً
             return True
-        elif permissions == c"vip":
+        elif permissions == "vip":
             # سيتم تطبيق فحص الصلاحيات لاحقاً
             return True
 
