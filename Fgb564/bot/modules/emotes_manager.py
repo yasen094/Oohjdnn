@@ -113,6 +113,8 @@ class EmotesManager:
             507: "dance-shuffle",
             508: "dance-popularvibe",
             509: "dance-griddy",
+            510: "dance-twerk",
+            511: "dance-ballet",
         }
 
         self.load_emotes_data()
