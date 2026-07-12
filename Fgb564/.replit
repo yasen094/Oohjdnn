@@ -25,12 +25,12 @@ name = "Highrise Bot"
 author = "agent"
 
 [workflows.workflow.metadata]
-outputType = "webview"
+outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd Fgb564/bot && python3.10 run.py"
-waitForPort = 5000
+args = "cd bot && PORT=9000 ../.pythonlibs/bin/python run.py"
+waitForPort = 9000
 
 [agent]
 stack = "PNPM_WORKSPACE"
@@ -42,3 +42,6 @@ timeoutMs = 20000
 
 [nix]
 channel = "stable-25_05"
+
+[[ports]]
+localPort = 9000
