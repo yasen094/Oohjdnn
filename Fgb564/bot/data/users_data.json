@@ -16,7 +16,7 @@
   "65402b9fffc87c0146e3dcb3": {
     "username": "HR_LY",
     "joined_at": "2026-07-11T22:14:20.058396",
-    "last_seen": "2026-07-12T01:39:50.056038",
+    "last_seen": "2026-07-12T01:41:17.667654",
     "user_type": "bot_developer",
     "is_active": true
   },
@@ -74,7 +74,8 @@
     "joined_at": "2026-07-12T00:51:03.193998",
     "last_seen": "2026-07-12T01:04:31.309162",
     "user_type": "visitor",
-    "is_active": true
+    "is_active": true,
+    "is_vip": true
   },
   "609642c7ecf6d0462ea664b6": {
     "username": "RnoomaQueen_",
@@ -115,6 +116,13 @@
     "username": "rimonr",
     "joined_at": "2026-07-12T01:39:22.981673",
     "last_seen": "2026-07-12T01:39:22.981673",
+    "user_type": "visitor",
+    "is_active": true
+  },
+  "6a517c924226e215dabb4afb": {
+    "username": "B_217",
+    "joined_at": "2026-07-12T01:40:53.140942",
+    "last_seen": "2026-07-12T01:40:53.140942",
     "user_type": "visitor",
     "is_active": true
   }

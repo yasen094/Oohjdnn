@@ -133,7 +133,7 @@ class CommandsHandler:
                 # أولاً: فحص الأوامر المخصصة الجديدة (الرقص والنقل)
                 from modules.custom_commands_manager import custom_commands_manager
                 custom_result = await custom_commands_manager.handle_custom_command(user, message, self.bot)
-                if custom_result:
+                if custom_result is not None:
                     print(f"✅ تم تنفيذ أمر مخصص: {message} للمستخدم {user.username}")
                     return custom_result
 

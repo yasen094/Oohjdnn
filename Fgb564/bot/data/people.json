@@ -3878,8 +3878,8 @@
   "65402b9fffc87c0146e3dcb3": {
     "username": "HR_LY",
     "first_visit": "2026-06-26T13:34:20.595954",
-    "last_visit": "2026-07-12T01:39:50.056038",
-    "visit_count": 536,
+    "last_visit": "2026-07-12T01:41:17.667654",
+    "visit_count": 537,
     "user_type": "visitor"
   },
   "65a093ba8b86d5ac39cfdbed": {
@@ -12540,7 +12540,8 @@
     "first_visit": "2026-07-09T18:54:54.892895",
     "last_visit": "2026-07-12T01:04:31.309162",
     "visit_count": 11,
-    "user_type": "visitor"
+    "user_type": "visitor",
+    "is_vip": true
   },
   "613c412035450be3ff288d87": {
     "username": "5y8",
@@ -13869,6 +13870,13 @@
     "username": "rimonr",
     "first_visit": "2026-07-12T01:39:22.981673",
     "last_visit": "2026-07-12T01:39:22.981673",
+    "visit_count": 1,
+    "user_type": "visitor"
+  },
+  "6a517c924226e215dabb4afb": {
+    "username": "B_217",
+    "first_visit": "2026-07-12T01:40:53.140942",
+    "last_visit": "2026-07-12T01:40:53.140942",
     "visit_count": 1,
     "user_type": "visitor"
   }
