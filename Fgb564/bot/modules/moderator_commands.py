@@ -885,11 +885,6 @@ class ModeratorCommands:
     async def bring_user_to_moderator(self, moderator_user: User, target_username: str) -> str:
         """إحضار مستخدم محدد إلى نفس مكان المشرف بالضبط"""
         try:
-            # أولاً نجرب الحصول على المواقع من نظام التتبع
-            moderator_location = self.bot.location_tracker.get_user_location(moderator_user.id)
-            target_location = self.bot.location_tracker.get_user_location_by_username(target_username)
-
-            # إذا لم نجد في نظام التتبع، نحصل من الغرفة مباشرة
             room_users = (await self.bot.highrise.get_room_users()).content
             moderator_position = None
             target_user = None
@@ -897,26 +892,18 @@ class ModeratorCommands:
             for user, position in room_users:
                 if user.id == moderator_user.id:
                     moderator_position = position
-                    # تحديث نظام التتبع
-                    self.bot.location_tracker.update_user_location(user, position)
                 elif user.username.lower() == target_username.lower():
                     target_user = user
-                    # تحديث نظام التتبع
-                    self.bot.location_tracker.update_user_location(user, position)
 
             if not moderator_position:
                 return "❌ لم أتمكن من العثور على مكانك"
 
             if not target_user:
-                # تحقق من وجود المستخدم في نظام التتبع
-                if target_location:
-                    return f"❌ المستخدم '{target_username}' ليس في الغرفة حالياً (آخر موقع معروف: {target_location['last_update'][:16]})"
                 return f"❌ المستخدم '{target_username}' غير موجود في الروم"
 
             if not isinstance(moderator_position, Position):
                 return "❌ مكانك غير صالح للنقل"
 
-            # إحضار المستخدم إلى نفس إحداثيات المشرف تماماً
             exact_position = Position(
                 moderator_position.x,
                 moderator_position.y,
@@ -924,10 +911,6 @@ class ModeratorCommands:
             )
 
             await self.bot.highrise.teleport(target_user.id, exact_position)
-
-            # تحديث موقع المستخدم في نظام التتبع
-            self.bot.location_tracker.update_user_location(target_user, exact_position)
-
             return f"✅ تم إحضار {target_username} إلى نفس إحداثياتك تماماً"
 
         except Exception as e:
