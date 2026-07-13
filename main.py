@@ -5,6 +5,11 @@ Runs the Highrise bot from Fgb564/bot/
 import sys
 import os
 
+# إضافة مسار المكتبات المحلية (Pterodactyl يثبّت في .local)
+_local_packages = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".local", "lib", "python3.10", "site-packages")
+if os.path.exists(_local_packages):
+    sys.path.insert(0, _local_packages)
+
 # مسار مجلد البوت
 BOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fgb564", "bot")
 
