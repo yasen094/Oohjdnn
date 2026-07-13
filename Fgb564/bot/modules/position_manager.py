@@ -187,7 +187,7 @@ class PositionManager:
             
             return None
 
-    async def save_current_position(self, highrise, username: str, position_name: str = "default"):
+    async def save_current_position(self, highrise, username: str, position_name: str = "default", bot_id: str = None):
         """حفظ المكان الحالي للبوت"""
         try:
             # الحصول على معلومات البوت
@@ -195,14 +195,28 @@ class PositionManager:
             bot_user = None
             bot_position = None
             
-            # البحث عن البوت في قائمة المستخدمين بالاعتماد على BOT_ID
-            BOT_ID = "657a06ae5f8a5ec3ff16ec1b"
-            
             for user, position in room_users:
-                if user.id == BOT_ID:
+                if bot_id and user.id == bot_id:
                     bot_user = user
                     bot_position = position
                     break
+                elif not bot_id and hasattr(highrise, 'my_id') and user.id == highrise.my_id:
+                    bot_user = user
+                    bot_position = position
+                    break
+            
+            # fallback: أول مستخدم يطابق أي ID متاح من config
+            if not bot_user:
+                try:
+                    from config import get_bot_id
+                    config_bot_id = get_bot_id()
+                    for user, position in room_users:
+                        if user.id == config_bot_id:
+                            bot_user = user
+                            bot_position = position
+                            break
+                except Exception:
+                    pass
             
             if bot_user and bot_position:
                 # تحويل المكان إلى dict
@@ -226,7 +240,7 @@ class PositionManager:
             print(f"❌ خطأ في حفظ المكان: {e}")
             return f"❌ خطأ في حفظ المكان: {str(e)}"
 
-    async def teleport_to_saved_position(self, highrise, position_name: str = "default"):
+    async def teleport_to_saved_position(self, highrise, position_name: str = "default", bot_id: str = None):
         """الانتقال إلى مكان محفوظ"""
         try:
             if position_name not in self.positions:
@@ -245,9 +259,21 @@ class PositionManager:
             position = self.dict_to_position(pos_data["position"])
             
             if position:
-                # استخدام BOT_ID المحدد مسبقاً
-                BOT_ID = "657a06ae5f8a5ec3ff16ec1b"
-                await highrise.teleport(BOT_ID, position)
+                # تحديد ID البوت بالترتيب: المُمرَّر → highrise.my_id → config
+                target_id = bot_id
+                if not target_id and hasattr(highrise, 'my_id'):
+                    target_id = highrise.my_id
+                if not target_id:
+                    try:
+                        from config import get_bot_id
+                        target_id = get_bot_id()
+                    except Exception:
+                        pass
+                
+                if not target_id:
+                    return "❌ لم يتم العثور على معرف البوت"
+                
+                await highrise.teleport(target_id, position)
                 return f"✅ تم الانتقال إلى '{position_name}'"
             else:
                 return f"❌ فشل في تحويل بيانات المكان '{position_name}'"

@@ -82,7 +82,9 @@
     "M.UM",
     "viv_m",
     "rc_33",
-    "TRX.20"
+    "TRX.20",
+    "M_66S",
+    "soos_16"
   ],
   "room_moderators": [
     "682bc2bc9fb4dce9e7cd4bd1",
@@ -152,5 +154,5 @@
   "room_owner": "65a093ba8b86d5ac39cfdbed",
   "room_king": null,
   "room_queen": null,
-  "updated_at": "2026-07-12T00:10:07.057664"
+  "updated_at": "2026-07-12T14:27:09.217842"
 }

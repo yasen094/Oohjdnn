@@ -63,7 +63,7 @@ class ModeratorCommands:
             if message == "حفظ":
                 try:
                     return await self.bot.position_manager.save_current_position(
-                        self.bot.highrise, user.username
+                        self.bot.highrise, user.username, bot_id=self.bot.my_id
                     )
                 except Exception as e:
                     print(f"خطأ في أمر حفظ: {e}")
@@ -74,7 +74,7 @@ class ModeratorCommands:
                     position_name = message[4:].strip()
                     if position_name:
                         return await self.bot.position_manager.save_current_position(
-                            self.bot.highrise, user.username, position_name
+                            self.bot.highrise, user.username, position_name, bot_id=self.bot.my_id
                         )
                     else:
                         return "❌ لازم تكتب اسم المكان بعد كلمة 'حفظ'"
@@ -83,7 +83,9 @@ class ModeratorCommands:
                     return f"❌ في مشكلة في حفظ المكان: {str(e)}"
 
             elif message == "اذهب":
-                return await self.bot.position_manager.teleport_to_saved_position(self.bot.highrise)
+                return await self.bot.position_manager.teleport_to_saved_position(
+                    self.bot.highrise, bot_id=self.bot.my_id
+                )
 
             elif message.startswith("اذهب "):
                 try:
@@ -97,14 +99,14 @@ class ModeratorCommands:
                             if 1 <= position_number <= len(positions_list):
                                 position_name = positions_list[position_number - 1]
                                 return await self.bot.position_manager.teleport_to_saved_position(
-                                    self.bot.highrise, position_name
+                                    self.bot.highrise, position_name, bot_id=self.bot.my_id
                                 )
                             else:
                                 return f"❌ رقم المكان غير صحيح. الأرقام المتاحة: 1-{len(positions_list)}"
                         else:
                             # اسم المكان مباشرة
                             return await self.bot.position_manager.teleport_to_saved_position(
-                                self.bot.highrise, position_identifier
+                                self.bot.highrise, position_identifier, bot_id=self.bot.my_id
                             )
                     else:
                         return "❌ يرجى كتابة اسم أو رقم المكان بعد 'اذهب'"

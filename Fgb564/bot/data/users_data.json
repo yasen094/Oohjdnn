@@ -1,177 +1,50 @@
 {
-  "666a2de829685ce6aeb6773d": {
-    "username": "hr_ly3_bot",
-    "joined_at": "2026-07-11T11:53:09.910707",
-    "last_seen": "2026-07-11T11:53:09.910707",
-    "user_type": "visitor",
-    "is_active": true
-  },
   "67ec60ad7c40455d7487ae16": {
     "username": "HR_LY10",
-    "joined_at": "2026-07-11T18:49:21.071557",
-    "last_seen": "2026-07-11T18:49:21.071557",
-    "user_type": "visitor",
+    "joined_at": "2026-07-12T14:55:16.118461",
+    "last_seen": "2026-07-12T14:55:16.118461",
+    "user_type": "moderator_designer",
+    "is_active": true
+  },
+  "666a2de829685ce6aeb6773d": {
+    "username": "hr_ly3_bot",
+    "joined_at": "2026-07-12T15:25:09.809136",
+    "last_seen": "2026-07-12T15:25:09.809136",
+    "user_type": "moderator_designer",
     "is_active": true
   },
   "65402b9fffc87c0146e3dcb3": {
     "username": "HR_LY",
-    "joined_at": "2026-07-11T22:14:20.058396",
-    "last_seen": "2026-07-12T01:41:17.667654",
+    "joined_at": "2026-07-13T15:59:30.265107",
+    "last_seen": "2026-07-13T16:58:45.649706",
     "user_type": "bot_developer",
     "is_active": true
   },
-  "6a0d78270e6285a2aea7c996": {
-    "username": "lo__lo9",
-    "joined_at": "2026-07-11T22:53:41.207126",
-    "last_seen": "2026-07-12T01:03:04.778719",
+  "688485fa384f1180b8c38f5b": {
+    "username": "M_66S",
+    "joined_at": "2026-07-13T15:59:38.506330",
+    "last_seen": "2026-07-13T17:00:50.955127",
     "user_type": "visitor",
     "is_active": true
   },
-  "60a59982cacd118c1e6a217a": {
-    "username": "2PAC00",
-    "joined_at": "2026-07-11T23:19:34.323317",
-    "last_seen": "2026-07-12T01:34:40.654489",
+  "67d1d5d566f47dce81b2e714": {
+    "username": "M.O.A.A.D.9",
+    "joined_at": "2026-07-13T16:35:35.725614",
+    "last_seen": "2026-07-13T16:35:35.725614",
     "user_type": "visitor",
     "is_active": true
   },
-  "65cfbc2f4c37fa07d6f88908": {
-    "username": "XC_BOT_3",
-    "joined_at": "2026-07-12T00:12:59.426641",
-    "last_seen": "2026-07-12T00:12:59.426641",
+  "6a543bc7901302fdd7e1fb44": {
+    "username": "director_tom",
+    "joined_at": "2026-07-13T16:53:51.197038",
+    "last_seen": "2026-07-13T17:02:16.270300",
     "user_type": "visitor",
     "is_active": true
   },
-  "67a8d00c6e038d2e58a44d86": {
-    "username": "A._.L._.R",
-    "joined_at": "2026-07-12T00:23:54.775607",
-    "last_seen": "2026-07-12T01:53:11.739281",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "68e2871c1a0552a6265c1ea7": {
-    "username": "A._.l._.B1",
-    "joined_at": "2026-07-12T00:24:35.796536",
-    "last_seen": "2026-07-12T01:57:57.744206",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "647cd0518ebaa8a67d6be6ee": {
-    "username": "emoji_dinaa",
-    "joined_at": "2026-07-12T00:45:17.717960",
-    "last_seen": "2026-07-12T01:52:34.201439",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "6883ee744c71b7b63415fe0f": {
-    "username": "N.2R",
-    "joined_at": "2026-07-12T00:47:58.228246",
-    "last_seen": "2026-07-12T01:37:28.187054",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "657dc863003b24d83ad52b9a": {
-    "username": "4HEB",
-    "joined_at": "2026-07-12T00:51:03.193998",
-    "last_seen": "2026-07-12T01:04:31.309162",
-    "user_type": "visitor",
-    "is_active": true,
-    "is_vip": true
-  },
-  "609642c7ecf6d0462ea664b6": {
-    "username": "RnoomaQueen_",
-    "joined_at": "2026-07-12T01:10:41.313801",
-    "last_seen": "2026-07-12T01:10:41.313801",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "69db0e3778f149417abb038c": {
-    "username": "B._xc",
-    "joined_at": "2026-07-12T01:13:27.635187",
-    "last_seen": "2026-07-12T01:13:27.635187",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "6a4f095c3d2a8e027e104332": {
-    "username": "Tage_1",
-    "joined_at": "2026-07-12T01:36:42.670847",
-    "last_seen": "2026-07-12T01:36:42.670847",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "650dbc7429cb03ab9f208572": {
-    "username": "pluto.v",
-    "joined_at": "2026-07-12T01:37:06.141264",
-    "last_seen": "2026-07-12T01:37:06.141264",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "68e27efd3142a8d672a3f355": {
-    "username": "v7.s",
-    "joined_at": "2026-07-12T01:38:34.663617",
-    "last_seen": "2026-07-12T01:38:34.663617",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "6a49d8b6ac777e447e2b522c": {
-    "username": "rimonr",
-    "joined_at": "2026-07-12T01:39:22.981673",
-    "last_seen": "2026-07-12T01:39:22.981673",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "6a517c924226e215dabb4afb": {
-    "username": "B_217",
-    "joined_at": "2026-07-12T01:40:53.140942",
-    "last_seen": "2026-07-12T01:40:53.140942",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "69f920c64b5b30ed3ec6d5a5": {
-    "username": "ALBARON11",
-    "joined_at": "2026-07-12T01:49:28.751018",
-    "last_seen": "2026-07-12T01:49:28.751018",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "6a4daf2053dc27418271977e": {
-    "username": "ZE9R",
-    "joined_at": "2026-07-12T01:49:35.758354",
-    "last_seen": "2026-07-12T01:49:35.758354",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "65682e9128dbe99397b56e0e": {
-    "username": "2PQ",
-    "joined_at": "2026-07-12T01:52:25.993715",
-    "last_seen": "2026-07-12T01:52:25.993715",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "661128843523d72cde112d5e": {
-    "username": "_V6_",
-    "joined_at": "2026-07-12T01:54:37.748213",
-    "last_seen": "2026-07-12T01:54:37.748213",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "6a4dba25f83fb49fb6fa392e": {
-    "username": "EET555",
-    "joined_at": "2026-07-12T01:55:18.238894",
-    "last_seen": "2026-07-12T01:55:18.238894",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "67a46f6098d72f6548af27d1": {
-    "username": "Bahaa.MK",
-    "joined_at": "2026-07-12T01:55:41.768796",
-    "last_seen": "2026-07-12T01:55:41.768796",
-    "user_type": "visitor",
-    "is_active": true
-  },
-  "69f2aa315aa981ffea2c9c59": {
-    "username": "kkuH8",
-    "joined_at": "2026-07-12T01:56:14.241724",
-    "last_seen": "2026-07-12T01:56:14.241724",
+  "67f53b4d9d997810968b7179": {
+    "username": "M.UM",
+    "joined_at": "2026-07-13T17:00:08.751779",
+    "last_seen": "2026-07-13T17:00:08.751779",
     "user_type": "visitor",
     "is_active": true
   }
