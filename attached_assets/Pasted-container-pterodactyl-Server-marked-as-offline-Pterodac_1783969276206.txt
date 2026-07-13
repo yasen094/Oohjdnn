@@ -1,0 +1,88 @@
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: Checking server disk space usage, this could take a few seconds...
+[Pterodactyl Daemon]: Updating process configuration files...
+[Pterodactyl Daemon]: Ensuring file permissions are set correctly, this could take a few seconds...
+container@pterodactyl~ Server marked as starting...
+[Pterodactyl Daemon]: Pulling Docker container image, this could take a few minutes to complete...
+[Pterodactyl Daemon]: Finished pulling Docker container image
+Python 3.10.20
+container~ if [[ -d .git ]] && [[ "${AUTO_UPDATE}" == "1" ]]; then git pull; fi; if [[ ! -z "${PY_PACKAGES}" ]]; then pip install -U --prefix .local ${PY_PACKAGES}; fi; if [[ -f /home/container/${REQUIREMENTS_FILE} ]]; then pip install -U --prefix .local -r ${REQUIREMENTS_FILE}; fi; /usr/local/bin/python /home/container/main.py
+📦 تثبيت المكتبات الناقصة: ['flask', 'highrise-bot-sdk==24.1.0', 'google-generativeai', 'python-dotenv']
+ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+Traceback (most recent call last):
+  File "/home/container/main.py", line 41, in <module>
+    ensure_packages()
+  File "/home/container/main.py", line 36, in ensure_packages
+    subprocess.check_call([
+  File "/usr/local/lib/python3.10/subprocess.py", line 369, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/usr/local/bin/python', '-m', 'pip', 'install', '--quiet', '--no-cache-dir', 'flask', 'highrise-bot-sdk==24.1.0', 'google-generativeai', 'python-dotenv']' returned non-zero exit status 1.
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: ---------- Detected server process in a crashed state! ----------
+[Pterodactyl Daemon]: Exit code: 1
+[Pterodactyl Daemon]: Out of memory: false
+[Pterodactyl Daemon]: Checking server disk space usage, this could take a few seconds...
+[Pterodactyl Daemon]: Updating process configuration files...
+[Pterodactyl Daemon]: Ensuring file permissions are set correctly, this could take a few seconds...
+container@pterodactyl~ Server marked as starting...
+[Pterodactyl Daemon]: Pulling Docker container image, this could take a few minutes to complete...
+[Pterodactyl Daemon]: Finished pulling Docker container image
+Python 3.10.20
+container~ if [[ -d .git ]] && [[ "${AUTO_UPDATE}" == "1" ]]; then git pull; fi; if [[ ! -z "${PY_PACKAGES}" ]]; then pip install -U --prefix .local ${PY_PACKAGES}; fi; if [[ -f /home/container/${REQUIREMENTS_FILE} ]]; then pip install -U --prefix .local -r ${REQUIREMENTS_FILE}; fi; /usr/local/bin/python /home/container/main.py
+📦 تثبيت المكتبات الناقصة: ['flask', 'highrise-bot-sdk==24.1.0', 'google-generativeai', 'python-dotenv']
+ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+Traceback (most recent call last):
+  File "/home/container/main.py", line 41, in <module>
+    ensure_packages()
+  File "/home/container/main.py", line 36, in ensure_packages
+    subprocess.check_call([
+  File "/usr/local/lib/python3.10/subprocess.py", line 369, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/usr/local/bin/python', '-m', 'pip', 'install', '--quiet', '--no-cache-dir', 'flask', 'highrise-bot-sdk==24.1.0', 'google-generativeai', 'python-dotenv']' returned non-zero exit status 1.
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: ---------- Detected server process in a crashed state! ----------
+[Pterodactyl Daemon]: Exit code: 1
+[Pterodactyl Daemon]: Out of memory: false
+[Pterodactyl Daemon]: Checking server disk space usage, this could take a few seconds...
+[Pterodactyl Daemon]: Updating process configuration files...
+[Pterodactyl Daemon]: Ensuring file permissions are set correctly, this could take a few seconds...
+container@pterodactyl~ Server marked as starting...
+[Pterodactyl Daemon]: Pulling Docker container image, this could take a few minutes to complete...
+[Pterodactyl Daemon]: Finished pulling Docker container image
+Python 3.10.20
+container~ if [[ -d .git ]] && [[ "${AUTO_UPDATE}" == "1" ]]; then git pull; fi; if [[ ! -z "${PY_PACKAGES}" ]]; then pip install -U --prefix .local ${PY_PACKAGES}; fi; if [[ -f /home/container/${REQUIREMENTS_FILE} ]]; then pip install -U --prefix .local -r ${REQUIREMENTS_FILE}; fi; /usr/local/bin/python /home/container/main.py
+📦 تثبيت المكتبات الناقصة: ['flask', 'highrise-bot-sdk==24.1.0', 'google-generativeai', 'python-dotenv']
+ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+
+
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+Traceback (most recent call last):
+  File "/home/container/main.py", line 41, in <module>
+    ensure_packages()
+  File "/home/container/main.py", line 36, in ensure_packages
+    subprocess.check_call([
+  File "/usr/local/lib/python3.10/subprocess.py", line 369, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/usr/local/bin/python', '-m', 'pip', 'install', '--quiet', '--no-cache-dir', 'flask', 'highrise-bot-sdk==24.1.0', 'google-generativeai', 'python-dotenv']' returned non-zero exit status 1.
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: ---------- Detected server process in a crashed state! ----------
+[Pterodactyl Daemon]: Exit code: 1
+[Pterodactyl Daemon]: Out of memory: false
+[Pterodactyl Daemon]: Checking server disk space usage, this could take a few seconds...
+[Pterodactyl Daemon]: Updating process configuration files...
+[Pterodactyl Daemon]: Ensuring file permissions are set correctly, this could take a few seconds...
+container@pterodactyl~ Server marked as starting...
+[Pterodactyl Daemon]: Pulling Docker container image, this could take a few minutes to complete...
+[Pterodactyl Daemon]: Finished pulling Docker container image
+Python 3.10.20
+container~ if [[ -d .git ]] && [[ "${AUTO_UPDATE}" == "1" ]]; then git pull; fi; if [[ ! -z "${PY_PACKAGES}" ]]; then pip install -U --prefix .local ${PY_PACKAGES}; fi; if [[ -f /home/container/${REQUIREMENTS_FILE} ]]; then pip install -U --prefix .local -r ${REQUIREMENTS_FILE}; fi; /usr/local/bin/python /home/container/main.py
+📦 تثبيت المكتبات الناقصة: ['flask', 'highrise-bot-sdk==24.1.0', 'google-generativeai', 'python-dotenv']
