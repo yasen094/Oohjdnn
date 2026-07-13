@@ -5,8 +5,25 @@ Runs the Highrise bot WITHOUT Flask (not needed on Pterodactyl)
 import sys
 import os
 import types
+import subprocess
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# تثبيت الحزم الضرورية فقط في /tmp (لا تأكل مساحة القرص)
+DEPS_DIR = "/tmp/deps"
+os.makedirs(DEPS_DIR, exist_ok=True)
+sys.path.insert(0, DEPS_DIR)
+
+ESSENTIAL = ["highrise-bot-sdk==24.1.0", "python-dotenv"]
+try:
+    import highrise  # noqa
+except ImportError:
+    print(f"📦 تثبيت: {ESSENTIAL}")
+    subprocess.check_call([
+        sys.executable, "-m", "pip", "install",
+        "--quiet", "--no-cache-dir", f"--target={DEPS_DIR}"
+    ] + ESSENTIAL)
+    print("✅ تم التثبيت")
 
 # مسار مجلد البوت
 BOT_DIR = os.path.join(BASE_DIR, "Fgb564", "bot")
