@@ -1,0 +1,70 @@
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: Checking server disk space usage, this could take a few seconds...
+[Pterodactyl Daemon]: Updating process configuration files...
+[Pterodactyl Daemon]: Ensuring file permissions are set correctly, this could take a few seconds...
+container@pterodactyl~ Server marked as starting...
+[Pterodactyl Daemon]: Pulling Docker container image, this could take a few minutes to complete...
+[Pterodactyl Daemon]: Finished pulling Docker container image
+Python 3.10.20
+container~ export PATH="/home/container:$PATH"; if [[ -d .git ]] && [[ "${AUTO_UPDATE}" == "1" ]]; then git pull; fi; if [[ ! -z "${PY_PACKAGES}" ]]; then pip install -U --prefix .local ${PY_PACKAGES}; fi; if [[ -f /home/container/${REQUIREMENTS_FILE} ]]; then pip install -U --prefix .local -r ${REQUIREMENTS_FILE}; fi; ACL_MAIN="${PY_FILE}"; if [ ! -f "/home/container/${ACL_MAIN}" ]; then for c in main.py bot.py app.py; do if [ -f "/home/container/$c" ]; then echo "[ACLClouds] Configured file '${ACL_MAIN}' not found, using '$c' instead."; ACL_MAIN="$c"; break; fi; done; fi; if [ ! -f "/home/container/${ACL_MAIN}" ] && [ "$(ls -1 /home/container/*.py 2>/dev/null | wc -l)" = "1" ]; then ACL_MAIN="$(basename "$(ls -1 /home/container/*.py)")"; echo "[ACLClouds] Using the only Python file found: ${ACL_MAIN}"; fi; if [ ! -f "/home/container/${ACL_MAIN}" ]; then echo "[ACLClouds] ERROR: Python file '${PY_FILE}' not found."; echo "[ACLClouds] Available .py files:"; ls -1 /home/container/*.py 2>/dev/null | xargs -n1 basename 2>/dev/null | sed "s/^/  - /"; echo "[ACLClouds] Fix the 'Main File' field in the Startup tab, then restart."; exit 1; fi; /usr/local/bin/python /home/container/${ACL_MAIN}
+📦 تثبيت: ['highrise-bot-sdk==24.1.0', 'python-dotenv']
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+✅ تم التثبيت
+✅ Python 3.10.20
+📂 مجلد البوت: /home/container/Fgb564/bot
+🚀 تشغيل البوت بدون خادم الويب...
+📋 تحميل إعدادات البوت من config.py...
+🔧 ملخص إعدادات البوت:
+   👤 المطور: HR_LY (65402b9fff...)
+   🤖 البوت: EDX Bot (6a3bcee2d3...)
+   🏠 الغرفة: 65f5dc50e3...
+   🔑 التوكن: 7a5159bda8...
+   🌐 الخادم: 0.0.0.0:8080
+   ✅ جميع الإعدادات صحيحة
+✅ Python 3.10.20
+Traceback (most recent call last):
+  File "/home/container/main.py", line 74, in <module>
+    bot = run_module.RunBot()
+  File "/home/container/Fgb564/bot/run.py", line 2669, in __init__
+    getattr(import_module(self.bot_file), self.main_bot_class)(),
+AttributeError: module 'main' has no attribute 'MyBot'
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: ---------- Detected server process in a crashed state! ----------
+[Pterodactyl Daemon]: Exit code: 1
+[Pterodactyl Daemon]: Out of memory: false
+[Pterodactyl Daemon]: Checking server disk space usage, this could take a few seconds...
+[Pterodactyl Daemon]: Updating process configuration files...
+[Pterodactyl Daemon]: Ensuring file permissions are set correctly, this could take a few seconds...
+container@pterodactyl~ Server marked as starting...
+[Pterodactyl Daemon]: Pulling Docker container image, this could take a few minutes to complete...
+[Pterodactyl Daemon]: Finished pulling Docker container image
+Python 3.10.20
+container~ export PATH="/home/container:$PATH"; if [[ -d .git ]] && [[ "${AUTO_UPDATE}" == "1" ]]; then git pull; fi; if [[ ! -z "${PY_PACKAGES}" ]]; then pip install -U --prefix .local ${PY_PACKAGES}; fi; if [[ -f /home/container/${REQUIREMENTS_FILE} ]]; then pip install -U --prefix .local -r ${REQUIREMENTS_FILE}; fi; ACL_MAIN="${PY_FILE}"; if [ ! -f "/home/container/${ACL_MAIN}" ]; then for c in main.py bot.py app.py; do if [ -f "/home/container/$c" ]; then echo "[ACLClouds] Configured file '${ACL_MAIN}' not found, using '$c' instead."; ACL_MAIN="$c"; break; fi; done; fi; if [ ! -f "/home/container/${ACL_MAIN}" ] && [ "$(ls -1 /home/container/*.py 2>/dev/null | wc -l)" = "1" ]; then ACL_MAIN="$(basename "$(ls -1 /home/container/*.py)")"; echo "[ACLClouds] Using the only Python file found: ${ACL_MAIN}"; fi; if [ ! -f "/home/container/${ACL_MAIN}" ]; then echo "[ACLClouds] ERROR: Python file '${PY_FILE}' not found."; echo "[ACLClouds] Available .py files:"; ls -1 /home/container/*.py 2>/dev/null | xargs -n1 basename 2>/dev/null | sed "s/^/  - /"; echo "[ACLClouds] Fix the 'Main File' field in the Startup tab, then restart."; exit 1; fi; /usr/local/bin/python /home/container/${ACL_MAIN}
+📦 تثبيت: ['highrise-bot-sdk==24.1.0', 'python-dotenv']
+[notice] A new release of pip is available: 23.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+✅ تم التثبيت
+✅ Python 3.10.20
+📂 مجلد البوت: /home/container/Fgb564/bot
+🚀 تشغيل البوت بدون خادم الويب...
+📋 تحميل إعدادات البوت من config.py...
+🔧 ملخص إعدادات البوت:
+   👤 المطور: HR_LY (65402b9fff...)
+   🤖 البوت: EDX Bot (6a3bcee2d3...)
+   🏠 الغرفة: 65f5dc50e3...
+   🔑 التوكن: 7a5159bda8...
+   🌐 الخادم: 0.0.0.0:8080
+   ✅ جميع الإعدادات صحيحة
+✅ Python 3.10.20
+Traceback (most recent call last):
+  File "/home/container/main.py", line 74, in <module>
+    bot = run_module.RunBot()
+  File "/home/container/Fgb564/bot/run.py", line 2669, in __init__
+    getattr(import_module(self.bot_file), self.main_bot_class)(),
+AttributeError: module 'main' has no attribute 'MyBot'
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: ---------- Detected server process in a crashed state! ----------
+[Pterodactyl Daemon]: Exit code: 1
+[Pterodactyl Daemon]: Out of memory: false
+[Pterodactyl Daemon]: Aborting automatic restart, last crash occurred less than 60 seconds ago.

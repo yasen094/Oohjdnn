@@ -65,6 +65,16 @@ print("🚀 تشغيل البوت بدون خادم الويب...")
 
 import importlib.util
 
+# ── تسجيل Fgb564/bot/main.py كـ "main" في sys.modules ──────────────────
+# run.py يفعل import_module("main") ليجد MyBot
+# بدون هذا يجد الجذر main.py الذي لا يحتوي على MyBot
+bot_main_path = os.path.join(BOT_DIR, "main.py")
+bot_main_spec = importlib.util.spec_from_file_location("main", bot_main_path)
+bot_main_module = importlib.util.module_from_spec(bot_main_spec)
+sys.modules["main"] = bot_main_module
+bot_main_spec.loader.exec_module(bot_main_module)
+# ────────────────────────────────────────────────────────────────────────
+
 run_path = os.path.join(BOT_DIR, "run.py")
 spec = importlib.util.spec_from_file_location("run", run_path)
 run_module = importlib.util.module_from_spec(spec)
