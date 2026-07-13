@@ -2,6 +2,7 @@
 MyBot - الكلاس الرئيسي للبوت
 يُستدعى من run.py عبر: import_module("main").MyBot()
 """
+import asyncio
 from highrise import BaseBot, User
 from highrise.models import Position, AnchorPosition, Item
 
@@ -30,6 +31,7 @@ class MyBot(BaseBot):
         # معلومات الاتصال (يملؤها on_start)
         self.connection_info   = {}
         self.cached_room_users = []
+        self.auto_emotes       = {}   # {user_id: {"emote": str, "task": Task}}
 
         print("🤖 MyBot جاهز للاتصال...")
 
@@ -129,6 +131,19 @@ class MyBot(BaseBot):
                 await self.commands_handler.handle_emote(user, emote_id, receiver)
         except Exception as e:
             print(f"❌ خطأ في on_emote: {e}")
+
+    # ─────────────────────────────────────────────
+    async def repeat_emote_for_user(self, user_id: str, emote: str) -> None:
+        """تكرار الرقصة للمستخدم حتى يتم إلغاؤها"""
+        try:
+            while True:
+                try:
+                    await self.highrise.send_emote(emote, user_id)
+                except Exception as e:
+                    print(f"⚠️ خطأ في تكرار الرقصة: {e}")
+                await asyncio.sleep(8)
+        except asyncio.CancelledError:
+            pass
 
     # ─────────────────────────────────────────────
     async def on_tip(self, sender: User, receiver: User, tip) -> None:
