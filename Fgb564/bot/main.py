@@ -1,55 +1,140 @@
 """
-نقطة دخول البوت - مخصصة لـ Pterodactyl / ACLClouds
-يشغّل Flask + الهايرايز بوت بشكل متواصل
+MyBot - الكلاس الرئيسي للبوت
+يُستدعى من run.py عبر: import_module("main").MyBot()
 """
-import sys
-import os
+from highrise import BaseBot, User
+from highrise.models import Position, AnchorPosition, Item
 
-# إضافة مجلد البوت لمسار الاستيراد
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from modules.user_manager import UserManager
+from modules.emotes_manager import EmotesManager
+from modules.responses_manager import ResponsesManager
+from modules.commands_handler import CommandsHandler
+from modules.position_manager import PositionManager
 
-# التحقق من إصدار Python
-if sys.version_info < (3, 10):
-    print("❌ يتطلب Python 3.10 أو أحدث")
-    sys.exit(1)
 
-if sys.version_info >= (3, 11):
-    print(f"⚠️ تحذير: Python {sys.version_info.major}.{sys.version_info.minor} غير مدعوم رسمياً")
-    print("⚠️ يُنصح باستخدام Python 3.10")
+class MyBot(BaseBot):
 
-print(f"✅ Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
+    def __init__(self):
+        super().__init__()
 
-# تثبيت المكتبات الناقصة تلقائياً عند الحاجة
-def install_requirements():
-    import subprocess
-    req_file = os.path.join(os.path.dirname(__file__), "requirements.txt")
-    if os.path.exists(req_file):
+        # تهيئة جميع المديرين
+        self.user_manager      = UserManager()
+        self.emotes_manager    = EmotesManager()
+        self.responses_manager = ResponsesManager()
+        self.position_manager  = PositionManager()
+
+        # commands_handler يحتاج self (البوت) لأنه يستخدم self.highrise
+        # نؤجّل تهيئته حتى on_start حين يكون self.highrise جاهزاً
+        self.commands_handler  = None
+
+        # معلومات الاتصال (يملؤها on_start)
+        self.connection_info   = {}
+        self.cached_room_users = []
+
+        print("🤖 MyBot جاهز للاتصال...")
+
+    # ─────────────────────────────────────────────
+    async def on_start(self, session_metadata) -> None:
+        """عند بدء الاتصال بـ Highrise"""
         try:
-            subprocess.check_call([
-                sys.executable, "-m", "pip", "install",
-                "--prefix", ".local",
-                "-r", req_file,
-                "-q"
-            ])
+            self.commands_handler = CommandsHandler(self)
+
+            self.connection_info = {
+                "room_id":      session_metadata.room_info.room_id if hasattr(session_metadata, 'room_info') else "unknown",
+                "user_id":      session_metadata.user_info.user_id if hasattr(session_metadata, 'user_info') else "unknown",
+                "connected_at": __import__("time").time(),
+            }
+
+            print("✅ البوت متصل بالغرفة بنجاح!")
+            print(f"   🏠 الغرفة: {self.connection_info.get('room_id')}")
+            print(f"   🤖 معرف البوت: {self.connection_info.get('user_id')}")
+
+            # كتابة حالة الاتصال
+            try:
+                with open("bot_status.txt", "w", encoding="utf-8") as f:
+                    f.write(f"CONNECTED:{__import__('time').time()}\n")
+                    f.write(f"ROOM_ID:{self.connection_info.get('room_id')}\n")
+                    f.write(f"USER_ID:{self.connection_info.get('user_id')}\n")
+            except Exception:
+                pass
+
         except Exception as e:
-            print(f"⚠️ تحذير في تثبيت المكتبات: {e}")
+            print(f"❌ خطأ في on_start: {e}")
 
-try:
-    from highrise import BaseBot
-except ImportError:
-    print("📦 تثبيت المكتبات المطلوبة...")
-    install_requirements()
+    # ─────────────────────────────────────────────
+    async def on_chat(self, user: User, message: str) -> None:
+        """عند استقبال رسالة في الشات"""
+        try:
+            if self.commands_handler:
+                result = await self.commands_handler.handle_command(user, message)
+                if result:
+                    await self.highrise.chat(result)
+        except Exception as e:
+            print(f"❌ خطأ في on_chat من {user.username}: {e}")
 
-# تشغيل البوت الرئيسي (حلقة مستمرة — لا تخرج)
-if __name__ == "__main__":
-    # استيراد وتشغيل run.py مباشرة
-    import importlib.util
-    run_path = os.path.join(os.path.dirname(__file__), "run.py")
-    spec = importlib.util.spec_from_file_location("run", run_path)
-    run_module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(run_module)
+    # ─────────────────────────────────────────────
+    async def on_whisper(self, user: User, message: str) -> None:
+        """عند استقبال رسالة خاصة"""
+        try:
+            if self.commands_handler:
+                result = await self.commands_handler.handle_command(user, message, source="whisper")
+                if result:
+                    await self.highrise.send_whisper(user.id, result)
+        except Exception as e:
+            print(f"❌ خطأ في on_whisper من {user.username}: {e}")
 
-    # تشغيل الخادم والبوت
-    run_module.WebServer().keep_alive()
-    bot_runner = run_module.RunBot()
-    bot_runner.run_loop()
+    # ─────────────────────────────────────────────
+    async def on_user_join(self, user: User, position: Position | AnchorPosition) -> None:
+        """عند دخول مستخدم جديد للغرفة"""
+        try:
+            user_info = await self.user_manager.add_user_to_room(user, self)
+            print(f"👋 {user.username} دخل الغرفة")
+            if user_info:
+                print(f"   📊 النوع: {user_info.get('user_type', '؟')}")
+                print(f"   👮 مشرف: {user_info.get('is_moderator', False)}")
+
+            welcome_msg = self.responses_manager.get_welcome_response(user)
+            if welcome_msg:
+                await self.highrise.chat(welcome_msg)
+
+        except Exception as e:
+            print(f"❌ خطأ في معالجة دخول {user.username}: {e}")
+
+    # ─────────────────────────────────────────────
+    async def on_user_leave(self, user: User) -> None:
+        """عند مغادرة مستخدم للغرفة"""
+        try:
+            farewell_msg = self.responses_manager.get_farewell_message(user)
+            if farewell_msg:
+                await self.highrise.chat(farewell_msg)
+            print(f"🚪 {user.username} غادر الغرفة")
+
+        except Exception as e:
+            print(f"❌ خطأ في معالجة مغادرة {user.username}: {e}")
+
+    # ─────────────────────────────────────────────
+    async def on_user_move(self, user: User, position: Position | AnchorPosition) -> None:
+        """عند تحرك مستخدم داخل الغرفة"""
+        try:
+            if hasattr(self.user_manager, 'update_user_position'):
+                self.user_manager.update_user_position(user.id, position)
+        except Exception as e:
+            print(f"❌ خطأ في on_user_move: {e}")
+
+    # ─────────────────────────────────────────────
+    async def on_emote(self, user: User, emote_id: str, receiver: User | None) -> None:
+        """عند تنفيذ رقصة/حركة"""
+        try:
+            if self.commands_handler and hasattr(self.commands_handler, 'handle_emote'):
+                await self.commands_handler.handle_emote(user, emote_id, receiver)
+        except Exception as e:
+            print(f"❌ خطأ في on_emote: {e}")
+
+    # ─────────────────────────────────────────────
+    async def on_tip(self, sender: User, receiver: User, tip) -> None:
+        """عند استقبال إكرامية"""
+        try:
+            if self.commands_handler and hasattr(self.commands_handler, 'handle_tip'):
+                await self.commands_handler.handle_tip(sender, receiver, tip)
+        except Exception as e:
+            print(f"❌ خطأ في on_tip: {e}")
