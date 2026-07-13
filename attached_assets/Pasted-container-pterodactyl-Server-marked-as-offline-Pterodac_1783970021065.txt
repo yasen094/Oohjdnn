@@ -1,0 +1,24 @@
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: Checking server disk space usage, this could take a few seconds...
+[Pterodactyl Daemon]: Updating process configuration files...
+[Pterodactyl Daemon]: Ensuring file permissions are set correctly, this could take a few seconds...
+container@pterodactyl~ Server marked as starting...
+[Pterodactyl Daemon]: Pulling Docker container image, this could take a few minutes to complete...
+[Pterodactyl Daemon]: Finished pulling Docker container image
+Python 3.10.20
+container~ export PATH="/home/container:$PATH"; if [[ -d .git ]] && [[ "${AUTO_UPDATE}" == "1" ]]; then git pull; fi; if [[ ! -z "${PY_PACKAGES}" ]]; then pip install -U --prefix .local ${PY_PACKAGES}; fi; if [[ -f /home/container/${REQUIREMENTS_FILE} ]]; then pip install -U --prefix .local -r ${REQUIREMENTS_FILE}; fi; ACL_MAIN="${PY_FILE}"; if [ ! -f "/home/container/${ACL_MAIN}" ]; then for c in main.py bot.py app.py; do if [ -f "/home/container/$c" ]; then echo "[ACLClouds] Configured file '${ACL_MAIN}' not found, using '$c' instead."; ACL_MAIN="$c"; break; fi; done; fi; if [ ! -f "/home/container/${ACL_MAIN}" ] && [ "$(ls -1 /home/container/*.py 2>/dev/null | wc -l)" = "1" ]; then ACL_MAIN="$(basename "$(ls -1 /home/container/*.py)")"; echo "[ACLClouds] Using the only Python file found: ${ACL_MAIN}"; fi; if [ ! -f "/home/container/${ACL_MAIN}" ]; then echo "[ACLClouds] ERROR: Python file '${PY_FILE}' not found."; echo "[ACLClouds] Available .py files:"; ls -1 /home/container/*.py 2>/dev/null | xargs -n1 basename 2>/dev/null | sed "s/^/  - /"; echo "[ACLClouds] Fix the 'Main File' field in the Startup tab, then restart."; exit 1; fi; /usr/local/bin/python /home/container/${ACL_MAIN}
+✅ Python 3.10.20
+📂 مجلد البوت: /home/container/Fgb564/bot
+Traceback (most recent call last):
+  File "/home/container/main.py", line 29, in <module>
+    spec.loader.exec_module(run_module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/container/Fgb564/bot/run.py", line 1, in <module>
+    from flask import Flask, render_template, jsonify, request
+ModuleNotFoundError: No module named 'flask'
+container@pterodactyl~ Server marked as offline...
+[Pterodactyl Daemon]: ---------- Detected server process in a crashed state! ----------
+[Pterodactyl Daemon]: Exit code: 1
+[Pterodactyl Daemon]: Out of memory: false
+[Pterodactyl Daemon]: Aborting automatic restart, last crash occurred less than 60 seconds ago.
