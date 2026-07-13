@@ -34,7 +34,7 @@ def ensure_packages():
     if missing:
         print(f"📦 تثبيت المكتبات الناقصة: {missing}")
         subprocess.check_call([
-            sys.executable, "-m", "pip", "install", "--quiet"
+            sys.executable, "-m", "pip", "install", "--quiet", "--no-cache-dir"
         ] + missing)
         print("✅ تم تثبيت المكتبات")
 
