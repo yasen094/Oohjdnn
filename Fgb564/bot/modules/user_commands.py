@@ -18,6 +18,9 @@ class UserCommands:
             if message.lower() in ["الأوامر", "commands", "help"]:
                 return self.get_help_message()
 
+            elif message.lower() in ["كف", "كُف", "اوقف", "وقّف"]:
+                return await self.stop_emote(user)
+
             elif message.lower() in ["stop", "توقف", "قف"]:
                 return await self.stop_emote(user)
 
