@@ -16,7 +16,7 @@
   "69a9f708f73eea5070f7a671": {
     "username": "4.SO",
     "joined_at": "2026-07-13T17:18:10.297837",
-    "last_seen": "2026-07-13T17:58:16.829445",
+    "last_seen": "2026-07-13T18:19:18.222614",
     "user_type": "visitor",
     "is_active": true
   },
@@ -45,6 +45,13 @@
     "username": "AX_505",
     "joined_at": "2026-07-13T18:07:23.807769",
     "last_seen": "2026-07-13T18:07:23.807769",
+    "user_type": "visitor",
+    "is_active": true
+  },
+  "69add1b8c0b0a341fc3785ae": {
+    "username": "viv_m",
+    "joined_at": "2026-07-13T18:17:18.848171",
+    "last_seen": "2026-07-13T18:17:18.848171",
     "user_type": "visitor",
     "is_active": true
   }
